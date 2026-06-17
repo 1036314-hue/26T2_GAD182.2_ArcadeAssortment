@@ -1,2 +1,2 @@
 # 26T2_GAD182.2_ArcadeAssortment
-FrontRooms games collection
+FrontRoomsGamesCollection
