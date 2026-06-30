@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GetToTheHospitalPlayerMovement : MonoBehaviour
+public class GetToTheHospitalEnemyCarSpawner : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -12,15 +12,5 @@ public class GetToTheHospitalPlayerMovement : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void moveLeft()
-    {
-
-    }
-
-    private void moveRight()
-    {
-
     }
 }
