@@ -4,6 +4,7 @@ public class PlayerBallLaunch : MonoBehaviour
 {
     // I don't know wtf to do
 
+
     private float speed;
     private bool isLaunched = false;
     private int launchFactor;
