@@ -5,7 +5,8 @@ namespace Ithiel
   Left,
   Right,
   Up,
-  Down
+  Down,
+  None
   }
 
   [System.Serializable]

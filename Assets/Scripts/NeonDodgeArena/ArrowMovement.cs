@@ -9,7 +9,7 @@ public class ArrowMovement : MonoBehaviour
  public Vector3 controlPoint;
  public NotesData arrows;
  public Vector3 targetPosition;
-
+ public ParticleSystem rangeGlow;
  public Vector3 startPosition;
  private float curveStrength = 7;
  private float startTime;
@@ -42,11 +42,11 @@ public class ArrowMovement : MonoBehaviour
 
         switch (arrows.key)
         {
-            case NoteKey.Left:
+            case NoteKey.Right:
                 offset = -right * curveStrength;
                 break;
 
-            case NoteKey.Right:
+            case NoteKey.Left:
                 offset = right * curveStrength;
                 break;
       
