@@ -30,6 +30,10 @@ public class ArrowMovement : MonoBehaviour
                     + Mathf.Pow(t, 2) * targetPosition;
 
         transform.position = pos;
+        if(Vector3.Distance(transform.position, targetPosition) < 0.07f)
+        {
+            Score.Instance.Miss();
+        }
  } 
  public void Curve()
     {

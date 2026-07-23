@@ -46,6 +46,7 @@ public class PlayerInputManager : MonoBehaviour
           ArrowMovement arrow = destroyList[0];
           destroyList.RemoveAt(0);
           Debug.Log(arrow);
+          Score.Instance.Arrow();
           if (arrow!=null)Destroy(arrow.gameObject);
           range.ClearLists();
         }
