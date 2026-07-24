@@ -7,7 +7,7 @@ public class GetToTheHospitalEnemyCarSpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject enemyCar;
-    public float spawnTimer = 200f;
+    private double spawnTimer = 10f;
     private Vector3[] enemySpawnPoints =
     {
         new Vector3(0, 1.5f, 90),
@@ -20,6 +20,8 @@ public class GetToTheHospitalEnemyCarSpawner : MonoBehaviour
 
     private bool canSpawn = true;
 
+    public int score;
+
     
     void Start()
     {
@@ -28,12 +30,13 @@ public class GetToTheHospitalEnemyCarSpawner : MonoBehaviour
 
     private IEnumerator SpawnCars()
     {
-        WaitForSeconds wait = new WaitForSeconds(spawnTimer);
+        WaitForSeconds wait = new WaitForSeconds((int)spawnTimer);
         while (canSpawn == true)
         {
             yield return wait;
             currentSpawnPoint = enemySpawnPoints[UnityEngine.Random.Range(0, enemySpawnPoints.Length)];
             Instantiate(enemyCar, currentSpawnPoint, Quaternion.identity);
+            spawnTimer = spawnTimer / (Double)((score + 1) * 1.33);
             yield return wait;
         }
     }
