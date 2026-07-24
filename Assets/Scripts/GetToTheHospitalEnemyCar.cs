@@ -1,8 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GetToTheHospitalEnemyCar : MonoBehaviour
 {
     public GameObject spawner;
+
+    [SerializeField]
+    private GameObject playerCar;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +23,14 @@ public class GetToTheHospitalEnemyCar : MonoBehaviour
         if (transform.position.z <= -15)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject == playerCar)
+        {
+            Debug.Log("Collided with the player Car");
         }
     }
 }

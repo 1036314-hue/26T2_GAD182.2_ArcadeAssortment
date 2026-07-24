@@ -121,4 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41af9478cf7ab9e4c8f0fe3d383148d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
+  spawner: {fileID: 1699585871343118740, guid: f6576b50f3ec7c94d9ee1e5380632173, type: 3}
+  playerCar: {fileID: 6408316184065373857, guid: fe54cd80f8a27264695514b07f3980ef, type: 3}
