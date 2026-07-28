@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class PointSystem : MonoBehaviour
+public class TargetScript : MonoBehaviour
 {
     private int target;
-    [SerializeField] private int totalPoints = 0;
+    // [SerializeField] private int totalPoints = 0;
 
+    public TotalPoints points;
     void Start()
     {
         
@@ -18,7 +19,7 @@ public class PointSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        totalPoints ++;
-        Debug.Log("I suck");
+        points.points += 1;
+        Debug.Log("Target HIT!");
     }
 }
