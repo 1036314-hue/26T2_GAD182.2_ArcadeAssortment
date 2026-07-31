@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8d6c05bb91b51384d92aeab4b0cc1823, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d6c05bb91b51384d92aeab4b0cc1823, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d6c05bb91b51384d92aeab4b0cc1823, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d6c05bb91b51384d92aeab4b0cc1823, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.75597143
       objectReference: {fileID: 0}
@@ -80,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4162df64cff0b4b904a8ca64642826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalPoints: 0
+  points: {fileID: 0}
 --- !u!65 &7931066017861974891
 BoxCollider:
   m_ObjectHideFlags: 0
