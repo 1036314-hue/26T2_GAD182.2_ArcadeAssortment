@@ -1,13 +1,25 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class BallResetPosition : MonoBehaviour
 {
-    GameObject PlayerBall;
+    public static BallResetPosition Instance;
+    [SerializeField] 
+    private PullAndLaunch PlayerBall;
+    [SerializeField] private Transform ballPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); 
+            return;
+            
+        }
+        Instance = this;
+
+        DontDestroyOnLoad(gameObject); 
     }
 
     // Update is called once per frame
@@ -16,7 +28,12 @@ public class BallResetPosition : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Move ball back to starting position
-            // transform.position = PlayerBall.(0, 1.68, -8);
+           ResetBall();
         }
+    }
+    public void ResetBall()
+    {
+        PlayerBall.transform.position=ballPosition.position;
+        PlayerBall.ResetPhysics();
     }
 }

@@ -71,5 +71,13 @@ public class PullAndLaunch : MonoBehaviour
         // Applies a sudden, explosive physical force
         rb.AddForce(launchDirection * launchForce, ForceMode.Impulse);
     }
+    public void ResetPhysics()
+    {
+
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        rb.ResetInertiaTensor();
+    }
 }
 
