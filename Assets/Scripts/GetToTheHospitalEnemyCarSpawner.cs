@@ -5,16 +5,19 @@ using UnityEngine;
 
 public class GetToTheHospitalEnemyCarSpawner : MonoBehaviour
 {
+    public GameObject canvas;
+
     [SerializeField]
     private GameObject enemyCar;
+
     private double spawnTimer = 10f;
+
     private Vector3[] enemySpawnPoints =
     {
         new Vector3(0, 1.5f, 90),
         new Vector3(-8, 1.5f, 90),
         new Vector3(8, 1.5f, 90)
     };
-
 
     private Vector3 currentSpawnPoint;
 
@@ -23,8 +26,9 @@ public class GetToTheHospitalEnemyCarSpawner : MonoBehaviour
     public int score;
 
     
-    void Start()
+    void Awake()
     {
+        canvas = GameObject.Find("Canvas");
         StartCoroutine(SpawnCars());
     }
 

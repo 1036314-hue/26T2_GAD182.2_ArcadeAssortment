@@ -603,6 +603,7 @@ GameObject:
   - component: {fileID: 949579580}
   - component: {fileID: 949579579}
   - component: {fileID: 949579578}
+  - component: {fileID: 949579581}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -673,7 +674,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 949579579}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 949579581}
+        m_TargetAssemblyTypeName: GetToTheHospitalStartButton, Assembly-CSharp
+        m_MethodName: startGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &949579579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,6 +725,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949579576}
   m_CullTransparentMesh: 1
+--- !u!114 &949579581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949579576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d41566a2238a445b13ac1ce3b7bac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCar: {fileID: 52719313}
+  carSpawner: {fileID: 1315963457}
+  carSpawnerScript: {fileID: 1315963458}
+  canvas: {fileID: 293769654}
+--- !u!1 &1315963457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1699585871343118740, guid: f6576b50f3ec7c94d9ee1e5380632173, type: 3}
+  m_PrefabInstance: {fileID: 5182103471534287353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1315963458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6673741566152886230, guid: f6576b50f3ec7c94d9ee1e5380632173, type: 3}
+  m_PrefabInstance: {fileID: 5182103471534287353}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315963457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a961d2a5e4d8c684b8472431757ea528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1352995444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,6 +1213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 1699585871343118740, guid: f6576b50f3ec7c94d9ee1e5380632173, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5578132895631915877, guid: f6576b50f3ec7c94d9ee1e5380632173, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.489307
@@ -1264,6 +1313,10 @@ PrefabInstance:
     - target: {fileID: 6408316184065373857, guid: fe54cd80f8a27264695514b07f3980ef, type: 3}
       propertyPath: m_Name
       value: Player Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408316184065373857, guid: fe54cd80f8a27264695514b07f3980ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

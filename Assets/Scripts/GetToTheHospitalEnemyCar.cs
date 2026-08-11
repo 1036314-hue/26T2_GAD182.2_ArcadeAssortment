@@ -9,16 +9,15 @@ public class GetToTheHospitalEnemyCar : MonoBehaviour
     private GetToTheHospitalEnemyCarSpawner spawnerScript;
 
     [SerializeField]
-    private GameObject playerCar;
+    private GameObject canvas;
 
-
-
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spawner = GameObject.Find("CarSpawner");
         spawnerScript = spawner.GetComponent<GetToTheHospitalEnemyCarSpawner>();
-        playerCar = GameObject.Find("Player Car");
+        canvas = spawnerScript.canvas;
     }
 
     // Update is called once per frame
@@ -35,9 +34,13 @@ public class GetToTheHospitalEnemyCar : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision playerCar)
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided with something");
-
+        if(collision.gameObject.name == "Player Car")
+        {
+            collision.gameObject.SetActive(false);
+            spawner.SetActive(false);
+            canvas.SetActive(true);
+        }
     }
 }
