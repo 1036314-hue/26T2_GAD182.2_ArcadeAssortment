@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8, y: 1.5, z: 90}
-  m_LocalScale: {x: 5, y: 3, z: 10}
+  m_LocalScale: {x: 10, y: 10, z: 12}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5511714110838432064}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 8863988234216243179, guid: 052e7f450e77d324fb9ee5d5386babcd, type: 3}
 --- !u!23 &6455223485421349391
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 46be817cbd4d11a46bdf72509ee9869f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,8 +108,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.5, y: 0.5, z: 0.9}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &2834312141859747095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 1699585871343118740, guid: f6576b50f3ec7c94d9ee1e5380632173, type: 3}
   spawnerScript: {fileID: 0}
-  playerCar: {fileID: 6408316184065373857, guid: fe54cd80f8a27264695514b07f3980ef, type: 3}
+  canvas: {fileID: 0}
 --- !u!54 &8600761307174456690
 Rigidbody:
   m_ObjectHideFlags: 0
