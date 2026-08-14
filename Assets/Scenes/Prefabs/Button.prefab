@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   canvas: {fileID: 0}
+  Explosion: {fileID: 5054938623128249288, guid: d26314288f0ad94439ebb02f2bbe806f, type: 3}
 --- !u!1 &8535893065393805191
 GameObject:
   m_ObjectHideFlags: 0

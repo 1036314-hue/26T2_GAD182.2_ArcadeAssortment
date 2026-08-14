@@ -2,21 +2,28 @@ using System.Security;
 using Ithiel;
 using Mono.Cecil.Cil;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+
 
 public class ArrowMovement : MonoBehaviour
 {
+    [SerializeField] private Material material;
+    
  public Vector3 controlPoint;
  public NotesData arrows;
  public Vector3 targetPosition;
- public ParticleSystem rangeGlow;
+ public ParticleSystem Explosion;
  public Vector3 startPosition;
  private float curveStrength = 7;
+ private bool finish=false;
+ public RangeManager range;
  private float startTime;
  void OnEnable()
  {
         startPosition = transform.position;
         startTime = Time.time;
+        finish = false;
 
         Curve();
  }
@@ -30,9 +37,20 @@ public class ArrowMovement : MonoBehaviour
                     + Mathf.Pow(t, 2) * targetPosition;
 
         transform.position = pos;
-        if(Vector3.Distance(transform.position, targetPosition) < 0.07f)
+        if(Vector3.Distance(transform.position, targetPosition) < 0.07f && !finish)
         {
+            finish=true;
             Score.Instance.Miss();
+             ParticleSystem fx = Instantiate(
+                    Explosion,
+                    getPosition(),
+                    Quaternion.identity
+                );
+               Debug.Log(fx.main.duration);
+                fx.Play(); 
+                Destroy(fx.gameObject, fx.main.duration);
+                Destroy(gameObject);
+                range.ClearLists();
         }
  } 
  public void Curve()
@@ -61,5 +79,9 @@ public class ArrowMovement : MonoBehaviour
         }
 
         controlPoint = mid + offset;
+    }
+    public Vector3 getPosition()
+    {
+        return transform.position;
     }
 }

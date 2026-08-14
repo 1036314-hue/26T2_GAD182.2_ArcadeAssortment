@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Ithiel {
@@ -11,9 +10,37 @@ namespace Ithiel {
   public class Testing : MonoBehaviour
   {
     [SerializeField]
-    private ArrowMovement notePrefab;
+    private ArrowMovement leftPrefab;
+    [SerializeField]
+    private ArrowMovement upPrefab;
+    [SerializeField]
+    private ArrowMovement downPrefab;
+    [SerializeField]
+    private ArrowMovement rightPrefab;
+    [SerializeField] private GameObject gameOverCanvas;
+    private ArrowMovement getPrefab(NoteKey Direction)
+        {
+            switch(Direction)
+         {
+      case NoteKey.Up:
+        return upPrefab;
+        
+      case NoteKey.Left:
+        return leftPrefab;
+        
+      case NoteKey.Down:
+         return downPrefab;
+     
+      case NoteKey.Right:
+      return rightPrefab;
+       
+         }
+         return upPrefab;
+        }
     [SerializeField]
     private Transform bossPosition;
+    [SerializeField]
+    private RangeManager range;
     [SerializeField]
     private Transform targetPosition;
     [SerializeField]
@@ -58,9 +85,10 @@ namespace Ithiel {
         key = direction,
         floatTime = Random.Range(minFlight,maxFlight)
       };
-      ArrowMovement note = Instantiate(notePrefab, bossPosition.position, Quaternion.identity, bossPosition);
+      ArrowMovement note = Instantiate(getPrefab(direction), bossPosition.position, Quaternion.identity, bossPosition);
       note.arrows = test;
       note.targetPosition =  targetPosition.position;
+      note.range= range;
       switch(direction)
 {
     case NoteKey.Up:
@@ -85,12 +113,9 @@ namespace Ithiel {
       return choices[random];
     }
 
-    public void Update(){
-      if(Input.GetKeyDown(KeyCode.W)) Shoot(NoteKey.Up);
-      else if(Input.GetKeyDown(KeyCode.S)) Shoot(NoteKey.Down);
-      else if(Input.GetKeyDown(KeyCode.A)) Shoot(NoteKey.Left);
-      else if(Input.GetKeyDown(KeyCode.D)) Shoot(NoteKey.Right);
-      else if(Input.GetKeyDown(KeyCode.Return)&&!start)StartCoroutine(Punching());
+    public void StartGame(){
+      
+    StartCoroutine(Punching());
     }
     IEnumerator Punching()
     {
@@ -115,6 +140,9 @@ namespace Ithiel {
             Shoot(RandomKey());
         }
         start = false;
+       yield return new WaitForSecondsRealtime(0.5f);
+       gameOverCanvas.SetActive(true);
+       Time.timeScale=0;
     }
     IEnumerator CounterAttack()
     {
@@ -225,7 +253,13 @@ IEnumerator GameTimer()
 
     gameTimer.text = "00:00:00";
     gameTimer.color = Color.red;
+
+}
+public void RestartGame()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 }
 }
- }
 

@@ -2,11 +2,14 @@ using UnityEngine;
 using Ithiel;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 public class PlayerInputManager : MonoBehaviour
 {
     [SerializeField]
     private RangeManager range;
+    [SerializeField] private ParticleSystem Explosion;
+    
     
     void Update(){
 
@@ -17,10 +20,10 @@ public class PlayerInputManager : MonoBehaviour
     }
 
     private NoteKey HandleInput(){
-      if(Input.GetKeyDown(KeyCode.UpArrow)) return NoteKey.Up;
-      else if(Input.GetKeyDown(KeyCode.DownArrow)) return NoteKey.Down;
-      else if(Input.GetKeyDown(KeyCode.LeftArrow)) return NoteKey.Right;
-      else if(Input.GetKeyDown(KeyCode.RightArrow)) return NoteKey.Left;
+      if(Input.GetKeyDown(KeyCode.W)) return NoteKey.Up;
+      else if(Input.GetKeyDown(KeyCode.S)) return NoteKey.Down;
+      else if(Input.GetKeyDown(KeyCode.A)) return NoteKey.Right;
+      else if(Input.GetKeyDown(KeyCode.D)) return NoteKey.Left;
 
       return NoteKey.None;
     }
@@ -47,8 +50,20 @@ public class PlayerInputManager : MonoBehaviour
           destroyList.RemoveAt(0);
           Debug.Log(arrow);
           Score.Instance.Arrow();
-          if (arrow!=null)Destroy(arrow.gameObject);
+          if (arrow!=null)
+          {
+            ParticleSystem fx = Instantiate(
+                    Explosion,
+                    arrow.getPosition(),
+                    Quaternion.identity
+                );
+
+                fx.Play();
+                Destroy(fx.gameObject, fx.main.duration);
+                Destroy(arrow.gameObject);
+          }
           range.ClearLists();
+
         }
     }
 }

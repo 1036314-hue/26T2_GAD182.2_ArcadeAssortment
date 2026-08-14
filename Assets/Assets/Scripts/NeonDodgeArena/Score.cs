@@ -10,6 +10,7 @@ public class Score : MonoBehaviour
 private int score;
 [SerializeField]
 private int combo;
+private int maxCombo;
 
 [SerializeField]
 private int arrowScore = 2000;
@@ -22,14 +23,20 @@ private int comboBonusCount = 10;
 private int comboScore = 10000;
 [SerializeField]
 private RangeManager range;
+[SerializeField] 
+private AudioClip playerHit;
+[SerializeField] 
+private AudioClip arrowDestroy;
 [SerializeField]
 private TMP_Text scoreText;
 [SerializeField]
 private TMP_Text comboText;
+[SerializeField]
+private TMP_Text maxComboText;
 void OnAwake(){
     score = 0;
     combo = 0;
-    
+    maxCombo = 0;
 }
 
 private void Awake()
@@ -43,18 +50,24 @@ private void Awake()
     Instance = this;
     this.score = 0;
     this.combo = 0;
+    this.maxCombo = 0;
     DontDestroyOnLoad(gameObject);
 }
 
-public void Miss(){
+public void Miss()
+{
+    SFXManager.Instance.PlaySFX(playerHit);
     combo = 0;
         range.ClearLists();
         UpdateText();
 }
 
-public void Arrow(){
+public void Arrow()
+{
+    SFXManager.Instance.PlaySFX(arrowDestroy);
     score += arrowScore;
     combo++;
+    if(combo > maxCombo) maxCombo = combo;
     if(combo % comboBonusCount == 0)
     {
         score += (combo / comboBonusCount) * comboScore;
@@ -64,13 +77,16 @@ public void Arrow(){
 }
 
 
-public void Counter(){
+public void Counter()
+{
+    SFXManager.Instance.PlaySFX(arrowDestroy);
     score += counterScore;
     UpdateText();
 }
 private void UpdateText(){
     scoreText.text = score.ToString();
     comboText.text = combo.ToString();
+    maxComboText.text = maxCombo.ToString();
 }
 }
 }

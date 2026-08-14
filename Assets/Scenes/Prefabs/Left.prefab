@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7eceba79a7ad87440b45208243e2772a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -173,7 +173,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7eceba79a7ad87440b45208243e2772a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 2993603671165286057}
   - component: {fileID: 7210436611110870651}
   m_Layer: 8
-  m_Name: FirePunch
+  m_Name: Left
   m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,12 +265,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aeaf93a20dbdd54fa535e38cebe4c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 7eceba79a7ad87440b45208243e2772a, type: 2}
   controlPoint: {x: 0, y: 0, z: 0}
   arrows:
     key: 0
     floatTime: 0
   targetPosition: {x: 0, y: 0, z: 0}
-  rangeGlow: {fileID: 0}
+  Explosion: {fileID: 1683454635924696316, guid: 83e4071c3e3ae06439b1778029c40c4b, type: 3}
   startPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &7210436611110870651
 BoxCollider:
