@@ -1156,6 +1156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalpoint: 0
   scoreText: {fileID: 1119165762}
+  maxTurns: {fileID: 1082988858}
 --- !u!1001 &779984123
 PrefabInstance:
   m_ObjectHideFlags: 0

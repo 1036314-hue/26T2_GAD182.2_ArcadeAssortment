@@ -1,37 +1,42 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MaxTurns : MonoBehaviour
 {
     [Header("Turn Settings")]
     [SerializeField] private int currentTurn;
-    private int maxTurn = 5;
+    private int maxTurn = 6;
 
     [SerializeField] private TextMeshProUGUI turnCounterUI;
 
-    void Start()
+    private void Start()
     {
-        
+        TriggerTurn();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        turnCounterUI.text = "Turn " + currentTurn + " / " + maxTurn;
+    //private void OnMouseUp()
+    //{
+    //    if (turnCounterUI != null)
+    //    {
+    //        TriggerTurn();
+    //    }
+    //}
 
-        if (currentTurn == maxTurn)
-        {
-            Debug.Log("Max turn reached");
-        }
-    }
-
-    private void OnMouseUp()
+    public void TriggerTurn()
     {
-        
-        if(currentTurn < maxTurn)
+        if (currentTurn < maxTurn)
         {
             currentTurn += 1;
         }
-        Debug.Log("Turn " + currentTurn + " / " + maxTurn);
+        Debug.Log("Turn " + currentTurn + " / 5" );
+        turnCounterUI.text = "Turn " + currentTurn + " / 5";
+
+        if (currentTurn == (maxTurn - 1) )
+        {
+            Debug.Log("Max turn reached");
+            this.gameObject.SetActive(false);
+            turnCounterUI.text = "Finished";
+        }
     }
 }

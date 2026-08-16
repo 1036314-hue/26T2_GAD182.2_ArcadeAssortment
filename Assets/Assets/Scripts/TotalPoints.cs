@@ -6,6 +6,8 @@ public class TotalPoints : MonoBehaviour
     public static TotalPoints Instance;
     public int totalpoint = 0;
     [SerializeField] private TMP_Text scoreText;
+    public MaxTurns maxTurns;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,6 +32,7 @@ public class TotalPoints : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = $"Score: {totalpoint}";
+            maxTurns.TriggerTurn();
         }
     }
 

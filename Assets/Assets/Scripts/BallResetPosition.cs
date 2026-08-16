@@ -4,9 +4,9 @@ using UnityEngine;
 public class BallResetPosition : MonoBehaviour
 {
     public static BallResetPosition Instance;
-    [SerializeField] 
-    private PullAndLaunch PlayerBall;
+    [SerializeField] private PullAndLaunch PlayerBall;
     [SerializeField] private Transform ballPosition;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,5 +35,6 @@ public class BallResetPosition : MonoBehaviour
     {
         PlayerBall.transform.position=ballPosition.position;
         PlayerBall.ResetPhysics();
+        
     }
 }
