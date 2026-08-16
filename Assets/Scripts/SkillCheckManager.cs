@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SkillCheckManager : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class SkillCheckManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //giving arrow direction
         if (movingRight == true)
         {
             arrow.transform.Translate(arrowSpeed * Time.deltaTime, 0, 0);
@@ -34,6 +37,7 @@ public class SkillCheckManager : MonoBehaviour
             arrow.transform.Translate(-arrowSpeed * Time.deltaTime, 0, 0);
         }
 
+        //limits the movement
         if (arrow.transform.localPosition.x >= rightLimit)
         {
             movingRight = false;
@@ -43,6 +47,7 @@ public class SkillCheckManager : MonoBehaviour
         {
             movingRight = true;
         }
+
 
 
     }
