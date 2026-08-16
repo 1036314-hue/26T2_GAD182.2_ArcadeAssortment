@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class SkillCheckManager : MonoBehaviour
 {
+    public SkillCheckInputs input;
+
     public GameObject arrow;
 
     //arrows speed

@@ -4,12 +4,17 @@ using UnityEngine.InputSystem;
 
 public class SkillCheckInputs : MonoBehaviour
 {
+    public SkillCheckManager manager;
+
+    
     public GameObject arrow;
     public GameObject bar;
 
     public float barLeftLimit = -10f;
     public float barRightLimit = 120f;
 
+    public float score;
+    public float health = 5f;
 
 
 
@@ -32,11 +37,13 @@ public class SkillCheckInputs : MonoBehaviour
             if (arrowPositionComparedToBar >= barLeftLimit &&
                 arrowPositionComparedToBar <= barRightLimit)
             {
-                Debug.Log("Hit!");
+                score = score + 1;
+                Debug.Log("Hit! Your score is now " + score);
             }
             else
             {
-                Debug.Log("Miss!");
+                health = health - 1;
+                Debug.Log("Miss! You now have " + health + " Health");
             }
         }
     }
