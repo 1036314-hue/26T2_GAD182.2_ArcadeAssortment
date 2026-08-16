@@ -10,6 +10,8 @@ public class SkillCheckUI : MonoBehaviour
 
     void Update()
     {
+
+        //updating UI
         healthText.text = "Health: " + skillCheckInputs.health + "!";
         scoreText.text = "Score: " + skillCheckInputs.score + "!";
     }
