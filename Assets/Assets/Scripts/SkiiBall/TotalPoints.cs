@@ -4,41 +4,40 @@ using UnityEngine;
 public class TotalPoints : MonoBehaviour
 {
     public static TotalPoints Instance;
+
     public int totalpoint = 0;
-    [SerializeField] private TMP_Text scoreText;
-    public MaxTurns maxTurns;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField]
+    private TMP_Text scoreText;
+
+    private void Awake()
     {
-        totalpoint=0;
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject); 
-            return;
-            
-        }
         Instance = this;
-         if (scoreText != null)
-        {
-            scoreText.text = $"Score: {totalpoint}";
-        }
-
-        DontDestroyOnLoad(gameObject); 
     }
+
+    private void Start()
+    {
+        ResetScore();
+    }
+
     public void AddScore(int value)
     {
-        totalpoint+=value;
-        if (scoreText != null)
-        {
-            scoreText.text = $"Score: {totalpoint}";
-            maxTurns.TriggerTurn();
-        }
+        totalpoint += value;
+        UpdateScoreUI();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetScore()
     {
-        
+        totalpoint = 0;
+        UpdateScoreUI();
+    }
+
+    private void UpdateScoreUI()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text =
+                "SCORE: " + totalpoint;
+        }
     }
 }

@@ -5,9 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: e9bcf5238fbd49d48868ebf6c2515ed7
+  - enabled: 1
+    path: Assets/Scenes/GetToTheHospital.unity
+    guid: e747b40fe1d255044a200966625b7c29
+  - enabled: 1
+    path: Assets/Scenes/NeonDodgeArena.unity
+    guid: ba5152667489a2c49965e0a14f71487e
+  - enabled: 1
+    path: Assets/Scenes/SkiiBall.unity
+    guid: b5cc4bcd4f2f38f44916e63134138463
+  - enabled: 1
+    path: Assets/Scenes/SkillCheck.unity
+    guid: 2302a095843f4544a878b0abd9ae2ee6
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: e65f64fcf74ecab4ab8a9bfbeaaae9e9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
